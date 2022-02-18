@@ -1,0 +1,12 @@
+{
+  "private": true,
+  "name": "@lenaorobei/template-registry-poc",
+  "version": "0.0.0",
+  "description": "Run template verification",
+  "dependencies": {
+    "fs": "0.0.1-security"
+  },
+  "scripts": {
+    "add-to-registry": "node add-to-registry.js"
+  }
+}
