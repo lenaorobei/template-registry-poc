@@ -15,7 +15,8 @@ jobs:
         uses: lenaorobei/verify-template@main
   comment-success:
     runs-on: ubuntu-latest
-    if: (jobs.check.result == 'pass')
+    needs: check
+    if: ${{ always() && contains(join(needs.*.result, ','), 'pass') }}
     steps:
       - uses: ben-z/actions-comment-on-issue@1.0.2
         with:
