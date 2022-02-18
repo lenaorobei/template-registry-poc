@@ -20,8 +20,8 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
       - name: Change registry.json
-        run: |
-          sed -i '$s/}/,\n"author":"template"\n]/' registry.json
+        run: sed -i '$s/}/,\n"author":"template"\n]/' ./registry.json \
+             cat ./registry.json
       - name: Commit and push changes
         uses: devops-infra/action-commit-push@v0.6
         with:
