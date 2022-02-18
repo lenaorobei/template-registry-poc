@@ -10,13 +10,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-
       - name: Verify Template
         uses: lenaorobei/verify-template@main
   comment-success:
     runs-on: ubuntu-latest
     needs: check
-    if: ${{ always() && (needs.check.outputs.result == 'pass') }}
+    if: always() && (needs.check.outputs.result == 'pass')
     steps:
       - uses: ben-z/actions-comment-on-issue@1.0.2
         with:
