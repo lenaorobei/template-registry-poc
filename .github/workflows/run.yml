@@ -41,17 +41,10 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   fail-validation-comment:
     runs-on: ubuntu-latest
-    needs: [check]
-    if: ${{ always() && contains(join(needs.check.result, ','), 'failure') }}
+    needs: [add-to-registry]
+    if: ${{ always() && contains(join(needs.add-to-registry.result, ','), 'failure') }}
     steps:
-      - uses: badsyntax/github-action-issue-comment@master
-        name: Adding validation errors
+      - uses: ben-z/actions-comment-on-issue@1.0.2
         with:
-          action: 'create'
-          template: ./.github/fail-validation-comment-template.hbs
-          token: ${{ secrets.GITHUB_TOKEN }}
-          issue-number: ${{ github.event.issue.number }}
-          template-inputs: |
-            {
-              "errors": ${{ needs.check.outputs.errors }}
-            }
+          message: ${{ needs.check.outputs.errors }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
