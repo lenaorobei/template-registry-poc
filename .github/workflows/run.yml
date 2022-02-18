@@ -46,5 +46,5 @@ jobs:
     steps:
       - uses: ben-z/actions-comment-on-issue@1.0.2
         with:
-          message: ${{ needs.check.outputs.errors }}
+          message: ":x: Template validation failed."
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
