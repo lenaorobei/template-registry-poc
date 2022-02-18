@@ -45,10 +45,10 @@ jobs:
     if: ${{ always() && contains(join(needs.check.result, ','), 'failure') }}
     steps:
       - uses: badsyntax/github-action-issue-comment@master
+        name: Adding validation errors
         with:
           action: 'create',
           template: '.github/fail-validation-comment-template.hbs'
-          id: example
           token: ${{ secrets.GITHUB_TOKEN }}
           issue-number: ${{ github.event.issue.number }}
           template-inputs: |
