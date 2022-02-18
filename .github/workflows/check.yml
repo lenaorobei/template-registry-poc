@@ -15,11 +15,12 @@ jobs:
   comment-success:
     runs-on: ubuntu-latest
     needs: check
+    if: ${{ always() && contains(join(needs.*.result, ','), 'success') }}
     steps:
       - uses: ben-z/actions-comment-on-issue@1.0.2
         with:
-          message: "Congratulations! Your template has been verified and added to the Template Registry.\n
-                   Feel free to add *Verified by Adobe* badge to your template repo:\n
+          message: "Congratulations! Your template has been verified and added to the Template Registry.\n\n
+                   Feel free to add *Verified by Adobe* badge to your template repo:\n\n
                    [![verified-by-adobe](https://badgen.net/badge/adobe/verified/green)](https://github.com/lenaorobei/template-registry-poc)\n
                    ```\n
                    [![verified-by-adobe](https://badgen.net/badge/adobe/verified/green)](https://github.com/lenaorobei/template-registry-poc)\n
