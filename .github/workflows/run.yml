@@ -16,8 +16,8 @@ jobs:
   add-to-registry:
     name: Add template to the Registry
     runs-on: ubuntu-latest
-    needs: check
-    if: ${{ always() && contains(join(needs.check.result, ','), 'success') }}
+    needs: verify
+    if: ${{ always() && contains(join(needs.verify.result, ','), 'success') }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -45,8 +45,8 @@ jobs:
   fail-validation-comment:
     name: Add comment about validation failure
     runs-on: ubuntu-latest
-    needs: [check]
-    if: ${{ always() && contains(join(needs.check.result, ','), 'failure') }}
+    needs: [verify]
+    if: ${{ always() && contains(join(needs.verify.result, ','), 'failure') }}
     steps:
       - uses: ben-z/actions-comment-on-issue@1.0.2
         with:
