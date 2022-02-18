@@ -47,7 +47,7 @@ jobs:
       - uses: badsyntax/github-action-issue-comment@master
         name: Adding validation errors
         with:
-          action: 'create',
+          action: 'create'
           template: '.github/fail-validation-comment-template.hbs'
           token: ${{ secrets.GITHUB_TOKEN }}
           issue-number: ${{ github.event.issue.number }}
