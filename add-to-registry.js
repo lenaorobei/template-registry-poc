@@ -1,7 +1,7 @@
 const fs = require('fs');
 const myArgs = process.argv.slice(2);
 const body = myArgs[0];
-const pluginName = extractPluginNameFromIssue(body);
+const pluginName = extractTemplateNameFromIssue(body);
 const registry = fs.readFileSync('registry.json');
 const registryObject= JSON.parse(registry);
 
@@ -12,7 +12,7 @@ fs.writeFile('registry.json', newData, err => {
     console.log("New template was added", newData);
 });
 
-function extractPluginNameFromIssue(issueBody) {
+function extractTemplateNameFromIssue(issueBody) {
     const matches = issueBody.split('\n')
         .map((line) => {
             const match = line ? line.match(/(https?:\/\/.[^ ]*)/gi) : null
@@ -28,6 +28,6 @@ function extractPluginNameFromIssue(issueBody) {
     if (matches.length) {
         return matches[0];
     } else {
-        throw new Error('Could not determine plugin name.');
+        throw new Error('Could not determine template name.');
     }
 }

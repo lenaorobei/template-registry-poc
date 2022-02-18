@@ -39,12 +39,19 @@ jobs:
         with:
           message: ":white_check_mark: Congratulations! Your template has been verified and added to the Template Registry."
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  fail-comment:
+  fail-validation-comment:
     runs-on: ubuntu-latest
-    needs: [check, add-to-registry]
-    if: ${{ always() && contains(join(needs.*.result, ','), 'failure') }}
+    needs: [check]
+    if: ${{ always() && contains(join(needs.check.result, ','), 'failure') }}
     steps:
-      - uses: ben-z/actions-comment-on-issue@1.0.2
+      - uses: badsyntax/github-action-issue-comment@master
         with:
-          message: ":x: The template didn't pass the validation."
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          action: 'create',
+          template: '.github/fail-validation-comment-template.hbs'
+          id: example
+          token: ${{ secrets.GITHUB_TOKEN }}
+          issue-number: ${{ github.event.issue.number }}
+          template-inputs: |
+            {
+              "errors": ${{ needs.check.outputs.errors }}
+            }
