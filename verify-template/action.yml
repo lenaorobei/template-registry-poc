@@ -1,0 +1,5 @@
+name: 'App Builder Template Check'
+description: 'Basic validation of App Builder Templates'
+runs:
+  using: 'node16'
+  main: 'index.js'

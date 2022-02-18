@@ -1,0 +1,15 @@
+name: Template Check
+
+on:
+  issues:
+    types: [labeled]
+
+jobs:
+  check:
+    if: ${{ github.event.label.name == 'review-request' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Verify Template
+        uses: './verify-template'

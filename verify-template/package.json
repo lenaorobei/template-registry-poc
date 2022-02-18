@@ -1,0 +1,11 @@
+{
+  "private": true,
+  "name": "@lenaorobei/verify-template",
+  "version": "0.0.0",
+  "description": "Run template verification",
+  "main": "index.js",
+  "dependencies": {
+    "@actions/core": "^1.2.6",
+    "@actions/github": "^2.1.1"
+  }
+}
