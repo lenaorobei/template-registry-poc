@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-const myArgs = process.argv.slice(2);
+const myArgs = process.argv;
 console.log('myArgs: ', myArgs);
 //
 // const registry = fs.readFileSync('registry.json');

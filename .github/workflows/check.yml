@@ -22,7 +22,7 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Change registry.json
-        run: node add-to-registry.js ${{ github.event.issue.body }}
+        run: node add-to-registry.js "${{ github.event.issue.body }}"
       - name: Commit and push changes
         uses: devops-infra/action-commit-push@v0.6
         with:
