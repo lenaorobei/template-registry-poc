@@ -27,7 +27,8 @@ jobs:
         uses: devops-infra/action-commit-push@v0.6
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          commit_message: Add template to registry
+          organization_domain: github.com
+          commit_message: Add template to the registry
   comment-success:
     runs-on: ubuntu-latest
     needs: [check, add-to-registry]
