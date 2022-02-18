@@ -2,11 +2,11 @@ name: Template Check
 
 on:
   issues:
-    types: [labeled]
+    types: [labeled, opened, reopened]
 
 jobs:
   check:
-    if: ${{ github.event.label.name == 'review-request' }}
+    # if: ${{ github.event.label.name == 'review-request' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
