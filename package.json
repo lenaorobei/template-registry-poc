@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "@lenaorobei/template-registry-poc",
+  "name": "@magento-eqp/template-registry-poc",
   "version": "0.0.0",
   "description": "Run template verification",
   "dependencies": {

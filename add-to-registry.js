@@ -9,9 +9,15 @@ registryObject.push(pluginName);
 const newData = JSON.stringify(registryObject);
 fs.writeFile('registry.json', newData, err => {
     if(err) throw err;
-    console.log("New template was added", newData);
+    console.log('New template was added', newData);
 });
 
+/**
+ * Extracting template name from the issue body.
+ *
+ * @param issueBody
+ * @returns {string}
+ */
 function extractTemplateNameFromIssue(issueBody) {
     const matches = issueBody.split('\n')
         .map((line) => {
@@ -28,6 +34,6 @@ function extractTemplateNameFromIssue(issueBody) {
     if (matches.length) {
         return matches[0];
     } else {
-        throw new Error('Could not determine template name.');
+        throw new Error('Cannot determine template name.');
     }
 }
