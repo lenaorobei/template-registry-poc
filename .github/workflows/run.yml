@@ -2,12 +2,12 @@ name: Template Check
 
 on:
   issues:
-    types: [labeled]
+    types: [opened, reopened]
   issue_comment:
     types: [ created ]
 jobs:
   verify:
-    if: (github.event_name == 'labeled' && github.event.label.name == 'review-request') || (github.event_name == 'issue_comment' && github.event.comment.body == '/verify')
+    if: (github.event_name == 'issues' && github.event.label.name == 'review-request') || (github.event_name == 'issue_comment' && github.event.comment.body == '/verify')
     name: Verify template
     runs-on: ubuntu-latest
     steps:
