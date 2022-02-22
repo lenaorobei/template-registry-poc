@@ -2,7 +2,7 @@ name: Template Check
 
 on:
   issues:
-    types: [opened]
+    types: [labeled]
 
 jobs:
   verify:
