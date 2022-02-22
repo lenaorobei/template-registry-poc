@@ -2,11 +2,11 @@ name: Template Check
 
 on:
   issues:
-    types: [labeled]
+    types: [opened]
 
 jobs:
   verify:
-    # if: ${{ github.event.label.name == 'review-request' }}
+    if: ${{ github.event.label.name == 'review-request' }}
     name: Verify template
     runs-on: ubuntu-latest
     steps:
