@@ -7,7 +7,7 @@ on:
     types: [ created ]
 jobs:
   verify:
-    if: (github.event_name == 'label' && github.event.label.name == 'review-request') || (github.event_name == 'issue_comment' && github.event.comment.body == '/verify')
+    if: (github.event.label.name == 'review-request') || (github.event_name == 'issue_comment' && github.event.comment.body == '/verify')
     name: Verify template
     runs-on: ubuntu-latest
     steps:
