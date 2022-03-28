@@ -18,10 +18,10 @@ body:
       required: true
   - type: dropdown
     id: category
-    multiple: true
     attributes:
       label: Category
       description: What is the category of your template?
+      multiple: true
       options:
         - action (Default)
         - ui (Edge)
