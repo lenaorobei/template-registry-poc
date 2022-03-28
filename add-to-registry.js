@@ -2,6 +2,7 @@ const fs = require('fs');
 const myArgs = process.argv.slice(2);
 const body = myArgs[0];
 
+console.log(process.argv);
 console.log(body);
 
 /*
