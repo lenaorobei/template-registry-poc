@@ -124,8 +124,11 @@ jobs:
       - uses: ben-z/actions-comment-on-issue@1.0.2
         with:
           message: |
-            :x: Template validation failed.
+            The following checks failed:
+            
             ${{ needs.check-github-link.outputs.error }}
             ${{ needs.check-npm-link.outputs.error }}
             ${{ needs.check-npm-package.outputs.error }}
+            
+            Comment /check to run checks again.
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
