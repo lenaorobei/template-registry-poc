@@ -49,7 +49,7 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Change registry.json
-        run: node add-to-registry.js $(npm view --json ${{ needs.parse-issue-form-body.outputs.npm-package }} name author description version) ${{ needs.parse-issue-form-body.outputs.githublink }}  ${{ needs.parse-issue-form-body.outputs.npm-link }}
+        run: node add-to-registry.js "$(npm view --json ${{ needs.parse-issue-form-body.outputs.npm-package }} name author description version)" ${{ needs.parse-issue-form-body.outputs.githublink }} ${{ needs.parse-issue-form-body.outputs.npm-link }}
       - name: Commit and push changes
         uses: EndBug/add-and-commit@v8
         with:
