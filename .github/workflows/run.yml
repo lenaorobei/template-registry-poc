@@ -49,7 +49,9 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Change registry.json
-        run: node add-to-registry.js '$(echo "npm view --json ${{ needs.parse-issue-form-body.outputs.npm-package }}" '
+        run: |
+        package_data=$(echo 'npm view ${{ needs.parse-issue-form-body.outputs.npm-package }}')
+        node add-to-registry.js $package_data
       - name: Commit and push changes
         uses: EndBug/add-and-commit@v8
         with:
