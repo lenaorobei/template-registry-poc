@@ -16,3 +16,17 @@ body:
       placeholder: https://www.npmjs.com/package/xxx
     validations:
       required: true
+  - type: dropdown
+    id: category
+    multiple: true
+    attributes:
+      label: Category
+      description: What is the category of your template?
+      options:
+        - action (Default)
+        - ui (Edge)
+        - mesh (Edge)
+        - event (Edge)
+        - CI/CD (Edge)
+    validations:
+       required: true
