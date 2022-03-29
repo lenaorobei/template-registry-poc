@@ -17,10 +17,21 @@ body:
     validations:
       required: true
   - type: dropdown
+    id: extension-point
+    attributes:
+      label: "Extension point"
+      description: The extension point your template provides
+      multiple: true
+      options:
+        - DX SPA
+        - Asset Microservices
+    validations:
+      required: true
+  - type: dropdown
     id: category
     attributes:
-      label: Category
-      description: What is the category of your template?
+      label: "Category"
+      description: Select the list of categories for your template
       multiple: true
       options:
         - action
@@ -29,4 +40,4 @@ body:
         - event
         - CI/CD
     validations:
-       required: true
+      required: true
