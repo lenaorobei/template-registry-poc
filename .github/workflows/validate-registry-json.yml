@@ -13,8 +13,8 @@ jobs:
       - name: Validate JSON
         uses: docker://orrosenblatt/validate-json-action:latest
         env:
-          INPUT_SCHEMA: registry.schema.json
-          INPUT_JSONS: registry.json
+          INPUT_SCHEMA: ./registry.schema.json
+          INPUT_JSONS: ./registry.json
   create-bug:
     name: Create GitHub issue
     runs-on: ubuntu-latest
@@ -26,4 +26,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          filename: .github/invalid-registry-json.md
+          filename: ./.github/invalid-registry-json.md
