@@ -4,6 +4,9 @@ on:
   push:
     paths:
       - 'registry.json'
+permissions:
+  contents: read
+  issues: write
 jobs:
   validate-json:
     name: Validate registry.json
@@ -26,4 +29,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          filename: ./.github/invalid-registry-json.md
+          filename: .github/invalid-registry-json.md
