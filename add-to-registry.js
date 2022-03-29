@@ -3,9 +3,10 @@ import {v4 as uuidv4} from 'uuid';
 import fetch from 'node-fetch';
 
 const myArgs = process.argv.slice(2);
-const body = myArgs[0];
+const packageData = JSON.parse(myArgs[0]);
 
-const packageData = JSON.parse(body);
+console.log("GitHub repo: " + myArgs[1]);
+console.log("NPM: " + myArgs[2])
 
 // Grab stargazers count for the specified GitHub repo
 const gitHubUrl = myArgs[1];
@@ -14,7 +15,7 @@ const gitHubResponse = await fetch('https://api.github.com/repos/' + repo);
 const stargazersCount = await gitHubResponse.text()['stargazers_count'];
 
 // Create registry item object
-let registryItem = {
+const registryItem = {
     "id": uuidv4(),
     "author": packageData.author,
     "name": packageData.name,
@@ -39,7 +40,7 @@ let registryItem = {
 // Check for duplicates
 const registry = JSON.parse(fs.readFileSync('registry.json'));
 if (registry.filter(e => e.name === registryItem.name).length > 0) {
-    throw new Error('Template with name ' + registryItem.name + ' already exists in Template Registry.')
+    throw new Error('Template with name `' + registryItem.name + '` already exists in Template Registry.')
 }
 
 // Add to the registry
