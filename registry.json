@@ -14,7 +14,7 @@
       "action",
       "ui"
     ],
-    "adobeRecommended": "string",
+    "adobeRecommended": "false",
     "links": {
       "npm": "https://www.npmjs.com/package/aio-lib-template",
       "github": "https://github.com/adobe/aio-lib-template"
