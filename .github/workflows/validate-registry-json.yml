@@ -12,7 +12,7 @@ jobs:
       - name: Commit and push changes
         uses: vanekj/validate-json-action@v1
         with:
-          schema: registry.schema.json
+          schema: ./registry.schema.json
           pattern: registry.json
   create-bug:
     name: Create GitHub issue
