@@ -22,15 +22,17 @@ const registryItem = {
     "description": packageData.description,
     "latestVersion": packageData.version,
     "publishDate": new Date(Date.now()),
+    // ToDo: get date from user input or keywords
     "extensionPoints": [
         "dx-spa",
         "dx-commerce"
     ],
-    "adobeRecommended": stargazersCount > 10,
     "categories": [
         "aio-action",
         "aio-graphql"
     ],
+    "adobeRecommended": stargazersCount > 10,
+    "keywords": packageData.keywords,
     "links": {
         "npm": myArgs[2],
         "github": gitHubUrl
