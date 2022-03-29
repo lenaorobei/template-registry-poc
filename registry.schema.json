@@ -1,5 +1,5 @@
 {
-    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$schema": "http://json-schema.org/draft-07/schema#",
     "$id": "https://github.com/adobe/aio-template-submission/blob/main/registry.schema.json",
     "title": "aio-app-template-registry-schema",
     "description": "A schema for the Adobe App Builder Template registry",

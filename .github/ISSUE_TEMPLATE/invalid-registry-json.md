@@ -1,5 +1,5 @@
 ---
-title: :exclamation: Invalid registry.json
+title: ":exclamation: Invalid registry.json"
 assignees: @adobe/devx-services
 labels: bug
 ---
