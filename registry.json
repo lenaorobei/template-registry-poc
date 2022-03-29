@@ -1,43 +1,23 @@
 [
-	{
-		"id": "c73bcdcc-2669-4bf6-81d3-e4ae73fb11fd",
-		"author": "adobe",
-		"name": "aio-lib-template",
-		"description": "A template for a new AIO library",
-		"latestVersion": "1.2.3",
-		"publishDate": "2022-03-29T00:00:00.000Z",
-		"extensionPoints": [
-			"dx-spa",
-			"dx-commerce"
-		],
-		"categories": [
-			"aio-action",
-			"aio-graphql"
-		],
-		"adobeRecommended": false,
-		"links": {
-			"npm": "https://www.npmjs.com/package/aio-lib-template",
-			"github": "https://github.com/adobe/aio-lib-template"
-		}
-	},
-	{
-		"id": "ee7eb2f4-0132-4ea5-9248-b408a5bfb36b",
-		"author": "Adobe Inc.",
-		"name": "@adobe/generator-app-excshell",
-		"description": "Extensibility template for generator-aio-app",
-		"latestVersion": "0.2.0",
-		"publishDate": "2022-03-28T22:11:03.216Z",
-		"extensionPoints": [
-			"dx-spa",
-			"dx-commerce"
-		],
-		"adobeRecommended": false,
-		"categories": [
-			"aio-action",
-			"aio-graphql"
-		],
-		"links": {
-			"github": "https://www.npmjs.com/package/@adobe/generator-app-excshell"
-		}
-	}
+    {
+        "id": "c73bcdcc-2669-4bf6-81d3-e4ae73fb11fd",
+        "author": "adobe",
+        "name": "aio-lib-template",
+        "description": "A template for a new AIO library",
+        "latestVersion": "1.2.3",
+        "publishDate": "2022-03-29T00:00:00.000Z",
+        "extensionPoints": [
+            "dx-spa",
+            "dx-commerce"
+        ],
+        "categories": [
+            "aio-action",
+            "aio-graphql"
+        ],
+        "adobeRecommended": false,
+        "links": {
+            "npm": "https://www.npmjs.com/package/aio-lib-template",
+            "github": "https://github.com/adobe/aio-lib-template"
+        }
+    }
 ]

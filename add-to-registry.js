@@ -36,13 +36,15 @@ let registryItem = {
     }
 }
 
-// Add to registry
+// Check for duplicates
 const registry = JSON.parse(fs.readFileSync('registry.json'));
 if (registry.filter(e => e.name === registryItem.name).length > 0) {
     throw new Error('Template with name ' + registryItem.name + ' already exists in Template Registry.')
 }
+
+// Add to the registry
 registry.push(registryItem);
-const newData = JSON.stringify(registry, null, "\t");
+const newData = JSON.stringify(registry, null, "  ");
 fs.writeFile('registry.json', newData, err => {
     if (err) throw err;
     console.log('New template was added', newData);

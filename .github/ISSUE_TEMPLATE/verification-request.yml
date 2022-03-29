@@ -19,7 +19,7 @@ body:
   - type: dropdown
     id: extension-point
     attributes:
-      label: "Extension point"
+      label: '"Extension point"'
       description: The extension point your template provides
       multiple: true
       options:
@@ -30,7 +30,7 @@ body:
   - type: dropdown
     id: category
     attributes:
-      label: "Category"
+      label: '"Category"'
       description: Select the list of categories for your template
       multiple: true
       options:

@@ -65,7 +65,7 @@ jobs:
     steps:
       - uses: peter-evans/close-issue@v1
         with:
-          comment: ":white_check_mark: Congratulations! Your template has been verified."
+          comment: ":white_check_mark: Congratulations! Your template has been verified and added to the registry."
           token: ${{ secrets.GITHUB_TOKEN }}
   fail-validation-comment:
     name: Validation failed
