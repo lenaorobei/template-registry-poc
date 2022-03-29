@@ -9,11 +9,12 @@ jobs:
     name: Validate registry.json
     runs-on: ubuntu-latest
     steps:
-      - name: Commit and push changes
-        uses: vanekj/validate-json-action@v1
-        with:
-          schema: ./registry.schema.json
-          pattern: registry.json
+      - uses: actions/checkout@v1
+      - name: Validate JSON
+        uses: docker://orrosenblatt/validate-json-action:latest
+        env:
+          INPUT_SCHEMA: registry.schema.json
+          INPUT_JSONS: registry.json
   create-bug:
     name: Create GitHub issue
     runs-on: ubuntu-latest
