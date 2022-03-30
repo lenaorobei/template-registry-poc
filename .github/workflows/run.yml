@@ -57,6 +57,8 @@ jobs:
           default_author: github_actions
           message: Add template to the Registry
           push: true
+    outputs:
+      error: ${{ steps.add-to-registry.outputs.error }}
   success-close-issue:
     name: Close issue
     runs-on: ubuntu-latest
@@ -77,5 +79,6 @@ jobs:
         with:
           message: |
             The following checks failed:
+            ${{ needs.add-to-registry.outputs.error }}
             Comment `/check` to run checks again.
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
