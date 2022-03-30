@@ -1,6 +1,7 @@
 import fs from 'fs' ;
 import {v4 as uuidv4} from 'uuid';
 import fetch from 'node-fetch';
+import * as core from '@actions/core';
 
 const myArgs = process.argv.slice(2);
 const packageData = JSON.parse(myArgs[0]);
@@ -42,13 +43,18 @@ const registryItem = {
 // Check for duplicates
 const registry = JSON.parse(fs.readFileSync('registry.json'));
 if (registry.filter(e => e.name === registryItem.name).length > 0) {
-    throw new Error('Template with name `' + registryItem.name + '` already exists in Template Registry.')
+    const errorMessage = ':x: Template with name `' + registryItem.name + '` already exists in Template Registry.';
+    core.setOutput('error', errorMessage);
+    throw new Error(errorMessage)
 }
 
 // Add to the registry
 registry.push(registryItem);
 const newData = JSON.stringify(registry, null, "  ");
 fs.writeFile('registry.json', newData, err => {
-    if (err) throw err;
+    if (err) {
+        core.setOutput('error', ':warning: Error occurred during adding template to the Template Registry.');
+        throw err;
+    }
     console.log('New template was added', newData);
 });
