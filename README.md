@@ -1,5 +1,6 @@
 # POC for App Builder Template Registry
 
+
 ## Adding a template to the Template Registry
 1. Create an issue with "Template Review Request" type.
 2. Provide GitHub and NPM links.
